@@ -1,0 +1,13 @@
+lidar:
+  pose: [0.26, 0, 0.475, 0, -0.1570796, 0]  #inclinato di 30 gradi verso il basso
+  h_samples: 1000
+  h_min_angle: 2.356194   #135°
+  h_max_angle: 3.926991   #225°
+  h_resolution: 1
+  v_samples: 128
+  v_min_angle: -0.3926991 #-22.5°
+  v_max_angle: 0.3926991  # 22.5°
+  v_resolution: 1
+  min_range: 0.01
+  max_range: 80.0
+  range_resolution: 0.01
