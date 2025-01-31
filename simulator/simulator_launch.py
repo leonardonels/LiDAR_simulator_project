@@ -184,12 +184,20 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Comando per catturare la pressione dei tasti
+    ignition_keypress = ExecuteProcess(
+        cmd=['ign', 'topic', '-e', '-t', '/keyboard/keypress'],
+        output='screen'
+    )
+    print('\n\n\n[MESSAGE]: To move the car click on the plugins dropdown list in the top right corner (vertical ellipsis), select the Key Publisher.\n\n\n')
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
             default_value='true',
             description='Use simulation time'
         ),
+        ignition_keypress,
         ignition_gazebo,
         ros2_bridge,
         rviz2
