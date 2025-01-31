@@ -7,7 +7,7 @@
 * Python launch file
 * Yaml params file with all customisable parameters
 * Models foulder for car and cones .stl models
-* Track foulder with .csv file with the internal side of a test track (no mid-track)
+* Track foulder with .csv file with the inside line of a test track (no mid-line)
 
 ## :package: Prerequisite packages
 > What we need are ros2, gazebo fortress, pandas and numpy.
@@ -28,7 +28,7 @@ ros2 launch simulator_project simulator_launch.py
 ```
 ![Screenshot from 2025-01-31 21-59-21](https://github.com/user-attachments/assets/343c7e04-40dd-4dab-8bff-37520b708268)
 
-![Screenshot from 2025-01-31 22-01-26](https://github.com/user-attachments/assets/b83116c2-6654-4973-a4c8-35ecabcbc5de)
+![Screenshot from 2025-01-31 22-30-23](https://github.com/user-attachments/assets/1c97b346-38b7-4f28-b460-c9268276eb99)
 
 ---
 
