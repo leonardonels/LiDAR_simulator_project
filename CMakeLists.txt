@@ -19,7 +19,7 @@ include_directories(
 
 install(FILES
   bridge.yaml
-  gazebo_params.yaml
+  params.yaml
   rviz_config.rviz
   DESTINATION share/${PROJECT_NAME}
 )
@@ -34,6 +34,10 @@ install(DIRECTORY sdf/
 
 install(DIRECTORY models/
   DESTINATION share/${PROJECT_NAME}/models
+)
+
+install(DIRECTORY tracks/
+  DESTINATION share/${PROJECT_NAME}/tracks
 )
 
 ament_package()
