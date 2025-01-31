@@ -26,3 +26,14 @@ colcon build --packages-select simulator_project --symlink-install
 ```commandline
 ros2 launch simulator_project simulator_launch.py
 ```
+![Screenshot from 2025-01-31 21-59-21](https://github.com/user-attachments/assets/343c7e04-40dd-4dab-8bff-37520b708268)
+
+![Screenshot from 2025-01-31 22-01-26](https://github.com/user-attachments/assets/b83116c2-6654-4973-a4c8-35ecabcbc5de)
+
+---
+
+## Todo List
+- [ ] Modify the lidar sensor to have a variable density of points
+- [ ] Fine-Tuning lidar settings
+- [ ] Apply the true model for the car
+- [ ] Improve performance
