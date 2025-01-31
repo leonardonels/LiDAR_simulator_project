@@ -35,5 +35,7 @@ ros2 launch simulator_project simulator_launch.py
 ## Todo List
 - [ ] Modify the lidar sensor to have a variable density of points
 - [ ] Fine-Tuning lidar settings
+- [ ] Implement a more accurate steering mode
+- [ ] Add ros2 movement control
 - [ ] Apply the true model for the car
 - [ ] Improve performance
