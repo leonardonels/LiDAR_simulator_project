@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import numpy as np
 
-def external_line(df, ext_df, scale=10, min_dist = 0.0):
+def positions(df, ext_df, scale=10, min_dist = 0.0, track_width=3):
     df['X']*=scale
     df['Y']*=scale
     X = df["X"].values
@@ -15,14 +15,13 @@ def external_line(df, ext_df, scale=10, min_dist = 0.0):
     dY = np.diff(Y)
     dX = np.append(dX, dX[-1])
     dY = np.append(dY, dY[-1])
-    norm = np.sqrt(dX**2 + dY**2)  # Norma del vettore
+    norm = np.sqrt(dX**2 + dY**2)
     dX_norm = dX / norm
     dY_norm = dY / norm
-    Nx = -dY_norm  # Rotazione oraria
-    Ny = dX_norm   # Rotazione oraria
-    offset = 3
-    ext_df['X'] = X + offset * Nx
-    ext_df['Y'] = Y + offset * Ny
+    Nx = -dY_norm
+    Ny = dX_norm
+    ext_df['X'] = X + track_width * Nx
+    ext_df['Y'] = Y + track_width * Ny
 
     new_df = pd.DataFrame(df.iloc[0]).T
     new_ext = pd.DataFrame(ext_df.iloc[0]).T
@@ -49,37 +48,34 @@ def external_line(df, ext_df, scale=10, min_dist = 0.0):
 
 
 def generate_launch_description():
-    # Percorsi principali
-    pkg_dir = os.path.dirname(os.path.abspath(__file__))  # Directory del file launch
-    sdf_template_file = os.path.join(pkg_dir, '../sdf/world_template.sdf')  # Template del mondo SDF
-    sdf_file = os.path.join(pkg_dir, '../sdf/world.sdf')  # File SDF generato
-    gazebo_params_file = os.path.join(pkg_dir, '../params.yaml')  # Parametri YAML
-    rviz_config_file = os.path.join(pkg_dir, '../rviz_config.rviz')  # File RViz opzionale
-    bridge_yaml = os.path.join(pkg_dir, '../bridge.yaml')  # File YAML per il bridge
-    race_track = os.path.join(pkg_dir, '../tracks/race_track.csv')  #File csv con un tracciato in funzione di x e y, le due feature del dataset
+    pkg_dir = os.path.dirname(os.path.abspath(__file__))
+    sdf_template_file = os.path.join(pkg_dir, '../sdf/world_template.sdf')
+    sdf_file = os.path.join(pkg_dir, '../sdf/world.sdf')
+    gazebo_params_file = os.path.join(pkg_dir, '../params.yaml')
+    rviz_config_file = os.path.join(pkg_dir, '../rviz_config.rviz')  #optional
+    bridge_yaml = os.path.join(pkg_dir, '../bridge.yaml')
+    race_track = os.path.join(pkg_dir, '../tracks/race_track.csv')  #csv file with X and Y features
 
-    # Carica i parametri dal file YAML
     if not os.path.exists(gazebo_params_file):
         raise FileNotFoundError(f"Il file YAML dei parametri non esiste: {gazebo_params_file}")
     
     with open(gazebo_params_file, 'r') as yaml_file:
         params = yaml.safe_load(yaml_file)
 
-    # Verifica che i parametri richiesti esistano
     lidar_params = params.get('lidar', {})
     vehicle_params = params.get('vehicle',{})
     cones_params = params.get('cones',{})
     required_keys = [
         'pose', 'h_samples', 'h_min_angle', 'h_max_angle', 
         'h_resolution', 'v_samples', 'v_min_angle', 'v_max_angle', 
-        'v_resolution', 'min_range', 'max_range', 'range_resolution', 'abs_pose', 'min_dist', 'scale'
+        'v_resolution', 'min_range', 'max_range', 'range_resolution', 
+        'abs_pose', 'min_dist', 'scale', 'track_width'
     ]
     for key in required_keys:
         if key not in lidar_params and key not in vehicle_params  and key not in cones_params:
             raise ValueError(f"Parametro '{key}' mancante nel file YAML.")
 
-    # Sostituisci i segnaposto nel template SDF
-    object_template = """
+    cones_template = """
         <model name='cone_{i}'>
             <static>true</static>
             <pose>{x} {y} 0 0 0 0</pose>
@@ -143,32 +139,27 @@ def generate_launch_description():
 
     df = pd.read_csv(race_track)
     ext_df = pd.DataFrame()
-    df, ext_df = external_line(df, ext_df, scale=cones_params['scale'], min_dist=cones_params['min_dist'])
+    df, ext_df = positions(df, ext_df, scale=cones_params['scale'], min_dist=cones_params['min_dist'], track_width=cones_params['track_width'])
 
     int_red,int_green,int_blue = 0.0,0.0,1.0    #internal line cones color
     ext_red,ext_green,ext_blue = 1.0,1.0,0.0    #external line cones color
     
     cones = ''
     for i in range(df.shape[0]):
-        cones += object_template.format(i=i, x=df.iloc[i]['X'], y=df.iloc[i]['Y'], red=int_red, green=int_green, blue=int_blue)
+        cones += cones_template.format(i=i, x=df.iloc[i]['X'], y=df.iloc[i]['Y'], red=int_red, green=int_green, blue=int_blue)
     for i in range(ext_df.shape[0]):
-        cones += object_template.format(i=i+df.shape[0], x=ext_df.iloc[i]['X'], y=ext_df.iloc[i]['Y'], red=ext_red, green=ext_green, blue=ext_blue)
+        cones += cones_template.format(i=i+df.shape[0], x=ext_df.iloc[i]['X'], y=ext_df.iloc[i]['Y'], red=ext_red, green=ext_green, blue=ext_blue)
 
     sdf_content = sdf_content.replace('${cones}', str(cones))
     
-
-
-    # Salva il file SDF generato
     with open(sdf_file, 'w') as sdf_file_out:
         sdf_file_out.write(sdf_content)
 
-    # Comando per avviare Ignition Gazebo con il file SDF
     ignition_gazebo = ExecuteProcess(
         cmd=['ign', 'gazebo', sdf_file],
         output='screen'
     )
 
-    # Nodo del ROS 2 bridge
     ros2_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -176,7 +167,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Nodo per RViz
     rviz2 = Node(
         package='rviz2',
         executable='rviz2',
@@ -184,7 +174,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Comando per catturare la pressione dei tasti
     ignition_keypress = ExecuteProcess(
         cmd=['ign', 'topic', '-e', '-t', '/keyboard/keypress'],
         output='screen'
