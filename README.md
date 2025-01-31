@@ -23,6 +23,7 @@ git clone https://github.com/leonardonels/simulator_project
 cd ..
 colcon build --packages-select simulator_project --symlink-install
 ```
+> To move the car click on the plugins dropdown list in the top right corner (vertical ellipsis), select the Key Publisher.
 ```commandline
 ros2 launch simulator_project simulator_launch.py
 ```
