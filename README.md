@@ -30,8 +30,6 @@ ros2 launch simulator_project simulator_launch.py
 
 ![Screenshot from 2025-01-31 22-30-23](https://github.com/user-attachments/assets/1c97b346-38b7-4f28-b460-c9268276eb99)
 
----
-
 ## Todo List
 - [ ] Modify the lidar sensor to have a variable density of points
 - [ ] Fine-Tuning lidar settings
