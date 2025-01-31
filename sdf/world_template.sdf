@@ -263,40 +263,39 @@
             </plugin>
         </model>
 
-        <model name='wall'>
+        <model name='cone_model'>
             <static>true</static>
             <pose>5 0 0.5 0 0 0</pose><!--pose relative to the world-->
-            <link name='box'>
+            <link name='cone_link'>
                 <pose/>
-                <inertial> <!--inertial properties of the link mass, inertia matix-->
+                <inertial>
                     <mass>1.14395</mass>
                     <inertia>
-                        <ixx>9.532917</ixx>
+                        <ixx>0.5</ixx>
                         <ixy>0</ixy>
                         <ixz>0</ixz>
-                        <iyy>0.023832</iyy>
+                        <iyy>0.5</iyy>
                         <iyz>0</iyz>
-                        <izz>9.556749</izz>
+                        <izz>0.5</izz>
                     </inertia>
                 </inertial>
                 <visual name='visual'>
                     <geometry>
-                        <box>
-                            <size>0.5 10.0 1.0</size>
-                        </box>
+                        <mesh>
+                            <uri>../models/cone_440.stl</uri>
+                        </mesh>
                     </geometry>
-                    <!--let's add color to our link-->
                     <material>
                         <ambient>0.0 1.0 0.0 1</ambient>
                         <diffuse>0.0 1.0 0.0 1</diffuse>
                         <specular>0.0 1.0 0.0 1</specular>
                     </material>
                 </visual>
-                <collision name='collision'> <!--todo: describe why we need the collision-->
+                <collision name='collision'>
                     <geometry>
-                        <box>
-                            <size>0.5 10.0 2.0</size>
-                        </box>
+                        <mesh>
+                            <uri>model://cone_440.stl</uri>
+                        </mesh>
                     </geometry>
                 </collision>
                 <sensor name='sensor_contact' type='contact'>
@@ -308,11 +307,12 @@
             <plugin filename="ignition-gazebo-touchplugin-system"
                     name="ignition::gazebo::systems::TouchPlugin">
                 <target>vehicle_blue</target>
-                <namespace>wall</namespace>
+                <namespace>cone_model</namespace>
                 <time>0.001</time>
                 <enabled>true</enabled>
             </plugin>
         </model>
+
 
         <!-- Moving Forward-->
         <plugin filename="libignition-gazebo-triggered-publisher-system.so"
