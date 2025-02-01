@@ -2,7 +2,7 @@ vehicle:
   abs_pose: [-2.4, 0, 0, 0, 0, -0.7]  #absolute position and rotation
 lidar:
   pose: [0.26, 0, 0.475, 0, -0.1570796, 0]  #lidar position and rotation relative to the car
-  h_samples: 1000
+  h_samples: 256
   h_min_angle: 2.356194   #135°
   h_max_angle: 3.926991   #225°
   h_resolution: 1
