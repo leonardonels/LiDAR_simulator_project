@@ -66,10 +66,10 @@ def generate_launch_description():
     vehicle_params = params.get('vehicle',{})
     cones_params = params.get('cones',{})
     required_keys = [
-        'pose', 'h_samples', 'h_min_angle', 'h_max_angle', 
+        'pose', 'linear_speed_f', 'hz', 'h_samples', 'h_min_angle', 'h_max_angle', 
         'h_resolution', 'v_samples', 'v_min_angle', 'v_max_angle', 
         'v_resolution', 'min_range', 'max_range', 'range_resolution', 
-        'abs_pose', 'min_dist', 'scale', 'track_width'
+        'noise_mean', 'noise_std', 'abs_pose', 'min_dist', 'scale', 'track_width'
     ]
     for key in required_keys:
         if key not in lidar_params and key not in vehicle_params  and key not in cones_params:
@@ -124,7 +124,9 @@ def generate_launch_description():
         sdf_content = sdf_file_in.read()
 
     sdf_content = sdf_content.replace('${vehicle_abs_pose}', ' '.join(map(str, vehicle_params['abs_pose'])))
+    sdf_content = sdf_content.replace('${vehicle_linear_speed_f}', str(vehicle_params['linear_speed_f']))
     sdf_content = sdf_content.replace('${lidar_pose}', ' '.join(map(str, lidar_params['pose'])))
+    sdf_content = sdf_content.replace('${lidar_hz}', str(lidar_params['hz']))
     sdf_content = sdf_content.replace('${lidar_h_samples}', str(lidar_params['h_samples']))
     sdf_content = sdf_content.replace('${lidar_h_min_angle}', str(lidar_params['h_min_angle']))
     sdf_content = sdf_content.replace('${lidar_h_max_angle}', str(lidar_params['h_max_angle']))
@@ -136,6 +138,8 @@ def generate_launch_description():
     sdf_content = sdf_content.replace('${lidar_min_range}', str(lidar_params['min_range']))
     sdf_content = sdf_content.replace('${lidar_max_range}', str(lidar_params['max_range']))
     sdf_content = sdf_content.replace('${lidar_range_resolution}', str(lidar_params['range_resolution']))
+    sdf_content = sdf_content.replace('${noise_mean}', str(lidar_params['noise_mean']))
+    sdf_content = sdf_content.replace('${noise_std}', str(lidar_params['noise_std']))
 
     df = pd.read_csv(race_track)
     ext_df = pd.DataFrame()

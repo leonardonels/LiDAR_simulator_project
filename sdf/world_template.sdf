@@ -79,7 +79,7 @@
                 <sensor name='lidar' type='gpu_lidar'>
                     <pose relative_to='lidar_frame'>0 0 0 0 0 0</pose>
                     <topic>lidar</topic>
-                    <update_rate>1</update_rate>
+                    <update_rate>${lidar_hz}</update_rate>
                     <lidar>
                         <scan>
                             <horizontal>
@@ -102,8 +102,8 @@
                         </range>
                         <noise>
                             <type>gaussian</type>
-                            <mean>0.0</mean>
-                            <stddev>0.05</stddev>
+                            <mean>${noise_mean}</mean>
+                            <stddev>${noise_std}</stddev>
                         </noise>
                     </lidar>
                     
@@ -275,7 +275,7 @@
                 <match field="data">16777235</match>
             </input>
             <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.5}, angular: {z: 0.0}
+                linear: {x: ${vehicle_linear_speed_f}}, angular: {z: 0.0}
             </output>
         </plugin>
 

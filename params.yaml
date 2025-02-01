@@ -1,18 +1,22 @@
 vehicle:
   abs_pose: [-2.4, 0, 0, 0, 0, -0.7]  #absolute position and rotation
+  linear_speed_f: 0.5
 lidar:
   pose: [0.26, 0, 0.475, 0, -0.1570796, 0]  #lidar position and rotation relative to the car
+  hz: 20
   h_samples: 256
   h_min_angle: 2.356194   #135°
   h_max_angle: 3.926991   #225°
-  h_resolution: 1
+  h_resolution: 0.1
   v_samples: 128
   v_min_angle: -0.3926991 #-22.5°
   v_max_angle: 0.3926991  # 22.5°
-  v_resolution: 1
+  v_resolution: 0.1
   min_range: 0.01
   max_range: 80.0
   range_resolution: 0.01
+  noise_mean: 0.0
+  noise_std: 0.2
 cones:
   min_dist: 1.5 #minimum distance between cones
   scale: 10 #map coordinates scale
