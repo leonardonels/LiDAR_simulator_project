@@ -29,7 +29,7 @@ ros2 launch simulator_project simulator_launch.py
 ```
 ![Screenshot from 2025-01-31 21-59-21](https://github.com/user-attachments/assets/343c7e04-40dd-4dab-8bff-37520b708268)
 
-![Screenshot from 2025-01-31 22-30-23](https://github.com/user-attachments/assets/1c97b346-38b7-4f28-b460-c9268276eb99)
+![scatter plot race track](https://github.com/user-attachments/assets/1a83dcf5-76ab-4309-8b8f-71cec086830f)
 
 ## Todo List
 - [ ] Modify the lidar sensor to have a variable density of points
