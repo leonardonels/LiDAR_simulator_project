@@ -83,7 +83,7 @@
                     <lidar>
                         <scan>
                             <horizontal>
-                                <samples>256</samples>
+                                <samples>1000</samples>
                                 <resolution>0.1</resolution>
                                 <min_angle>2.356194</min_angle>
                                 <max_angle>3.926991</max_angle>
@@ -8402,7 +8402,7 @@
                 <match field="data">16777235</match>
             </input>
             <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 1.0}, angular: {z: 0.0}
+                linear: {x: 0.5}, angular: {z: 0.0}
             </output>
         </plugin>
 
