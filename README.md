@@ -17,7 +17,7 @@ sudo apt-get install ros-humble-ros-gz-bridge python3-numpy python3-pandas -y
 ```
 ## :gear: How to build & Run
 ```commandline
-mkdir ros2_ws/src
+mkdir -p ros2_ws/src
 cd ros2_ws/src
 git clone https://github.com/leonardonels/simulator_project
 cd ..
