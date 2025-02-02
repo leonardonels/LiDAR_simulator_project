@@ -13,7 +13,7 @@
 > What we need are ros2, gazebo fortress, pandas and numpy.
 
 ```commandline
-sudo apt-get install python3-numpy python3-pandas -y
+sudo apt-get install ros-humble-ros-gz-bridge python3-numpy python3-pandas -y
 ```
 ## :gear: How to build & Run
 ```commandline
