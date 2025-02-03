@@ -1,7 +1,5 @@
 # Lidar Simulator
 
----
-
 ## Introduction
 
 By launching this command, two windows ***should*** appear:
@@ -16,7 +14,7 @@ This is what you ***should*** expect to see
 ## Content
 
 - `simulator/simulator_launch.py` : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
-- `params.yaml` : File with all customisable parameters
+- `params.yaml` : File with all customisable parameters see below...
 - `models/<file_name>.stl` : Car and cones .stl models
 - `sdf/`
     - `world_template.sdf` : Contains the template for the gazebo simulation world
