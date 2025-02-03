@@ -6,8 +6,8 @@
 
 * Python launch file
 * Yaml params file with all customisable parameters
-* Models foulder for car and cones .stl models
-* Track foulder with .csv file with the inside line of a test track (no mid-line)
+* Models folder for car and cones .stl models
+* Track folder with .csv file with the inside line of a test track (no mid-line)
 
 ## :package: Prerequisite packages
 > What we need are ros2 humble, gazebo fortress, ros-gz-bridge, pandas and numpy.
