@@ -1,5 +1,3 @@
-# Lidar Simulator
-
 ## Introduction
 
 By launching this command, two windows ***should*** appear:
