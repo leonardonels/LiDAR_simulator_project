@@ -38,9 +38,8 @@ To run this simulator you need:
 - **`gazebo fortress`** [[link]](https://gazebosim.org/docs/fortress/install/)
 
 <aside>
-⚠️
 
-*This simulator has been developed and tested with only these requisites in mind*
+    ⚠️*This simulator has been developed and tested with only these requisites in mind*
 
 </aside>
 
