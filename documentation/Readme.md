@@ -121,9 +121,6 @@ The following points could be improved/added in the future:
 - [ ]  Add ros2 movement control
 - [ ]  Apply the true model for the car
 - [ ]  Improve performance
+ 
+🏎️ Made by [**Leonardo Nels**](https://github.com/leonardonels) and [**Francesco Scalise**](https://github.com/frascalise) - 2025
 
-<aside>
-    
-    🏎️ Made by [**Leonardo Nels**](https://github.com/leonardonels) and [**Francesco Scalise**](https://github.com/frascalise) - 2025
-
-</aside>
