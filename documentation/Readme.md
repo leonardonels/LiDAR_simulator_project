@@ -11,13 +11,13 @@ This is what you ***should*** expect to see
 
 ## Content
 
-- `simulator/simulator_launch.py` : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
-- `params.yaml` : File with all customisable parameters see below...
-- `models/<file_name>.stl` : Car and cones .stl models
-- `sdf/`
-    - `world_template.sdf` : Contains the template for the gazebo simulation world
-    - `world.sdf` :  Contains the track for the gazebo simulation world with cones
-- `tracks/race_track.csv` : Contains the shape of the track with coordinates
+- **`simulator/simulator_launch.py`** : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
+- **`params.yaml`** : File with all customisable parameters see below...
+- **`models/<file_name>.stl`** : Car and cones .stl models
+- **`sdf/`**
+    - **`world_template.sdf`** : Contains the template for the gazebo simulation world
+    - **`world.sdf`** :  Contains the track for the gazebo simulation world with cones
+- **`tracks/race_track.csv`** : Contains the shape of the track with coordinates
     
     
     ![Points from **race_track.csv**](44d8f51a-e4ee-4a9b-9dd6-1785807aa673.png)
@@ -33,7 +33,7 @@ This is what you ***should*** expect to see
 
 To run this simulator you need: 
 
-- Ubuntu 22.04
+- Ubuntu 22.04 [[link]](https://releases.ubuntu.com/jammy/)
 - **`ros2 humble`** [[link]](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - **`gazebo fortress`** [[link]](https://gazebosim.org/docs/fortress/install/)
 
