@@ -39,7 +39,7 @@ To run this simulator you need:
 
 <aside>
 
-    ⚠️*This simulator has been developed and tested with only these requisites in mind*
+    ⚠️ This simulator has been developed and tested with only these requisites in mind
 
 </aside>
 
@@ -123,8 +123,7 @@ The following points could be improved/added in the future:
 - [ ]  Improve performance
 
 <aside>
-🏎️
-
-Made by [**Leonardo Nels**](https://github.com/leonardonels) and [**Francesco Scalise**](https://github.com/frascalise) - [2024/2025] 
+    
+    🏎️ Made by [**Leonardo Nels**](https://github.com/leonardonels) and [**Francesco Scalise**](https://github.com/frascalise) - 2025
 
 </aside>
