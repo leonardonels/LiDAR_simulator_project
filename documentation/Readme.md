@@ -33,7 +33,7 @@ This is what you ***should*** expect to see
 
 To run this simulator you need: 
 
-- Ubuntu 22.04 [[link]](https://releases.ubuntu.com/jammy/)
+- **`Ubuntu 22.04`** [[link]](https://releases.ubuntu.com/jammy/)
 - **`ros2 humble`** [[link]](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - **`gazebo fortress`** [[link]](https://gazebosim.org/docs/fortress/install/)
 
