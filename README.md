@@ -10,7 +10,7 @@
 * Track foulder with .csv file with the inside line of a test track (no mid-line)
 
 ## :package: Prerequisite packages
-> What we need are ros2, gazebo fortress, pandas and numpy.
+> What we need are ros2, gazebo fortress, ros-humble-ros-gz-bridge,pandas and numpy.
 
 ```commandline
 sudo apt-get install ros-humble-ros-gz-bridge python3-numpy python3-pandas -y
