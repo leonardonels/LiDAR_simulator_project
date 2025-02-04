@@ -70,6 +70,9 @@ git clone https://github.com/leonardonels/simulator_project.git
 cd ~/ros2_ws
 colcon build --packages-select simulator_project --symlink-install
 ```
+```bash
+source install/setup.bash
+```
 
 Then run the following code to run the simulator:
 
