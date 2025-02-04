@@ -58,9 +58,13 @@ sudo apt-get install ros-humble-ros-gz-bridge python3-numpy python3-pandas -y
 Run the following code to build the simulator:
 
 ```bash
+sudo apt update
+sudo apt upgrade -y
+```
+```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone https://github.com/leonardonels/simulator_project.git [CHANGE WITH MMR REPO]
+git clone https://github.com/leonardonels/simulator_project.git
 cd ~/ros2_ws
 colcon build --packages-select simulator_project --symlink-install
 ```
