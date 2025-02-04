@@ -59,6 +59,8 @@ Run the following code to build the simulator:
 
 ```bash
 sudo apt update
+```
+```bash
 sudo apt upgrade -y
 ```
 ```bash
