@@ -22,6 +22,7 @@ cd ~/ros2_ws/src
 git clone https://github.com/leonardonels/simulator_project.git
 cd ~/ros2_ws
 colcon build --packages-select simulator_project --symlink-install
+source install/setup.bash
 ```
 > To move the car click on the plugins dropdown list in the top right corner of gazebo (vertical ellipsis), select the Key Publisher.
 ```commandline
