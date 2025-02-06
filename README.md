@@ -26,7 +26,7 @@ source install/setup.bash
 ```
 > To move the car click on the plugins dropdown list in the top right corner of gazebo (vertical ellipsis), select the Key Publisher.
 ```commandline
-ros2 launch simulator_project simulator_launch.py
+ros2 launch LiDAR_simulator_project simulator_launch.py
 ```
 ![Screenshot from 2025-01-31 21-59-21](https://github.com/user-attachments/assets/343c7e04-40dd-4dab-8bff-37520b708268)
 
