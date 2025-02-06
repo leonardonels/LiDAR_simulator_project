@@ -13,7 +13,7 @@ This is what you ***should*** expect to see
 
 - **`simulator/`**
   - **`simulator_launch.py`** : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
-  - **`/filter.py`** : Python Ros2 node capable of removing excessive LiDAR rays (v_axis only) to achieve non-uniform rays distributions (v_axis only)
+  - **`/filter.py`** : Python Ros2 node capable of removing excessive LiDAR rays (v_axis only) to achieve non-uniform rays distributions
 - **`params.yaml`** : File with all customisable parameters see below...
 - **`models/<file_name>.stl`** : Car and cones .stl models
 - **`sdf/`**
