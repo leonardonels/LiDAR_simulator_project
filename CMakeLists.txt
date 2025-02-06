@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(simulator_project)
+project(LiDAR_simulator_project)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
