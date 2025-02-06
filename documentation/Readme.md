@@ -3,7 +3,7 @@
 By launching this command, two windows ***should*** appear:
 
 - 3D simulation of the track tested during the live test (using Gazebo)
-- Pointcloud recorded by the car's lidar (using Rviz)
+- Pointclouds (filtered and unfiltered) recorded by the car's lidar (using Rviz)
 
 ![This is what you ***should*** expect to see](image.png)
 
