@@ -77,7 +77,7 @@ source install/setup.bash
 Then run the following code to run the simulator:
 
 ```bash
-ros2 launch simulator_project simulator_launch.py
+ros2 launch LiDAR_simulator_project simulator_launch.py
 ```
 
 Finally, if you want to move the car with Gazebo:
