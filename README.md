@@ -33,9 +33,10 @@ ros2 launch LiDAR_simulator_project simulator_launch.py
 ![scatter plot race track](https://github.com/user-attachments/assets/1a83dcf5-76ab-4309-8b8f-71cec086830f)
 
 ## Todo List
-- [ ] Modify the lidar sensor to have a variable density of points
-- [ ] Fine-Tuning lidar settings
-- [ ] Implement a more accurate steering mode
-- [ ] Add ros2 movement control
-- [ ] Apply the true model for the car
-- [ ] Improve performance
+
+- [ ]  Fine-Tuning lidar settings
+- [ ]  implement filter presets to achieve faster and smoother operations
+- [ ]  Implement a more accurate steering mode
+- [ ]  Add ros2 movement control
+- [ ]  Apply the true model for the car
+- [ ]  Improve performance

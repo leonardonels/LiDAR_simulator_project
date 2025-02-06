@@ -11,7 +11,9 @@ This is what you ***should*** expect to see
 
 ## Content
 
-- **`simulator/simulator_launch.py`** : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
+- **`simulator/`**
+  - **`simulator_launch.py`** : Python launch file. Aggregates all .sdf/.stl models and opens the various .yaml for gazebo simulation
+  - **`/filter.py`** : Python Ros2 node capable of removing excessive LiDAR rays (v_axis only) to achieve non-uniform rays distributions (v_axis only)
 - **`params.yaml`** : File with all customisable parameters see below...
 - **`models/<file_name>.stl`** : Car and cones .stl models
 - **`sdf/`**
@@ -90,6 +92,15 @@ Finally, if you want to move the car with Gazebo:
 The following code explains what every parameter does:
 
 ```yaml
+# LiDAR v_rays filter
+filter:
+  vertical_zones: [
+            {'start': 0.0, 'end': 0.25, 'downsample': 4},  # Upper 25% of rows, keep 1/4
+            {'start': 0.25, 'end': 0.75, 'downsample': 1},  # Middle 50%, keep all
+            {'start': 0.75, 'end': 1.0, 'downsample': 4},  # Lower 25%, keep 1/4
+        ]
+  # use [{'start': 0.0, 'end': 1.0, 'downsample': 1}] to keep all LiDAR uniform rays
+
 # Vehicle parameters
 vehicle:
   abs_pose: [-2.4, 0, 0, 0, 0, -0.7]  # Absolute position and rotation
@@ -124,8 +135,8 @@ cones:
 
 The following points could be improved/added in the future:
 
-- [ ]  Modify the lidar sensor to have a variable density of points
 - [ ]  Fine-Tuning lidar settings
+- [ ]  implement filter presets to achieve faster and smoother operations
 - [ ]  Implement a more accurate steering mode
 - [ ]  Add ros2 movement control
 - [ ]  Apply the true model for the car
