@@ -66,9 +66,9 @@ sudo apt upgrade -y
 ```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone https://github.com/leonardonels/simulator_project.git
+git clone https://github.com/leonardonels/LiDAR_simulator_project.git
 cd ~/ros2_ws
-colcon build --packages-select simulator_project --symlink-install
+colcon build --packages-select LiDAR_simulator_project --symlink-install
 ```
 ```bash
 source install/setup.bash
