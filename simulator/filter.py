@@ -12,7 +12,7 @@ class PointCloudFilter:
             PointCloud2,
             '/lidar/points',
             self.callback,
-            10
+            1
         )
         self.publisher = self.node.create_publisher(PointCloud2, '/lidar/filtered', 10)
         pkg_dir = os.path.dirname(os.path.abspath(__file__))
