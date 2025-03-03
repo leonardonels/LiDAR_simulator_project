@@ -1,3 +1,6 @@
 - topic_name: "/lidar/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
+- topic_name: "/car/odom"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "ignition.msgs.Odometry"
