@@ -1,9 +1,0 @@
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/uninstall.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/LiDAR_simulator_project_uninstall.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/test.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/edit_cache.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/rebuild_cache.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/list_install_components.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/install.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/install/local.dir
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/CMakeFiles/install/strip.dir

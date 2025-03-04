@@ -1,1 +1,0 @@
-/home/enri/Formula/simulator_project/build/LiDAR_simulator_project/ament_cmake_environment_hooks/local_setup.bash
