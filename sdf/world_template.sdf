@@ -259,10 +259,24 @@
                 <right_joint>right_wheel_joint</right_joint>
                 <wheel_separation>1.2</wheel_separation>
                 <wheel_radius>0.2</wheel_radius>
-                <odom_publish_frequency>1</odom_publish_frequency>
-                <topic>cmd_vel</topic>
+                <odom_publish_frequency>20</odom_publish_frequency>
+                <enable_odom_tf>true</enable_odom_tf>
+                <odom_frame_id>odom</odom_frame_id>
+                <odom_topic>/car/wheel_odom</odom_topic>
+                <topic>/cmd_vel</topic>
             </plugin>
             
+            <!--
+            <plugin
+                filename="libignition-gazebo-pose-publisher-system.so"
+                name="ignition::gazebo::systems::PosePublisher">
+                <publish_link_pose>true</publish_link_pose> 
+                <publish_sensor_pose>true</publish_sensor_pose>
+                <publish_sim_time>true</publish_sim_time>
+                <update_frequency>20</update_frequency> 
+                <topic>/car/global_odom</topic>
+            </plugin>
+            -->
         </model>
 
         ${cones}

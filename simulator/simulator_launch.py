@@ -199,6 +199,6 @@ def generate_launch_description():
         ignition_keypress,
         ignition_gazebo,
         ros2_bridge,
-        rviz2,
+        # rviz2,
         pointcloud2_filter
     ])
