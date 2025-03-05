@@ -259,13 +259,16 @@
                 <right_joint>right_wheel_joint</right_joint>
                 <wheel_separation>1.2</wheel_separation>
                 <wheel_radius>0.2</wheel_radius>
-                <odom_publish_frequency>20</odom_publish_frequency>
-                <enable_odom_tf>true</enable_odom_tf>
-                <odom_frame_id>odom</odom_frame_id>
-                <odom_topic>/car/wheel_odom</odom_topic>
                 <topic>/cmd_vel</topic>
             </plugin>
-            
+
+            <plugin
+                filename="libignition-gazebo6-odometry-publisher-system"
+                name="ignition::gazebo::systems::OdometryPublisher">
+                <dimensions>3</dimensions>
+                <odom_publish_frequency>20</odom_publish_frequency>
+            </plugin>
+
             <!--
             <plugin
                 filename="libignition-gazebo-pose-publisher-system.so"
